@@ -1,7 +1,6 @@
 CREATE DATABASE stock_data;
 USE stock_data;
 
-
 CREATE TABLE stock(
 	symbol varchar(10),
     ticker_date DATE,
