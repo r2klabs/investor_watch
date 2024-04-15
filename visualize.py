@@ -96,7 +96,7 @@ def main():
         data = get_pandas_data(query, conn)
         st.write(data.head())
         st.line_chart(data.set_index('TICKER_DATE'))
-    
+
     
     close_connection(cur, conn)
 
