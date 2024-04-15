@@ -1,3 +1,8 @@
+'''This script is used to collect data for a specific company from the Polygon API
+and insert it into MySQL database.  This was part of the first iteration of this project
+using local database storage.  This script is no longer used, but is kept for reference and testing.'''
+
+
 import utilities as util
 import pandas as pd
 from datetime import date
@@ -5,7 +10,7 @@ import datetime
 import time
 import json
 
-ticker='TSLA'
+ticker='NVO'
 start_day='2023-02-11'
 end_day='2024-03-31'
  
