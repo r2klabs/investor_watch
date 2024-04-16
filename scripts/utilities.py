@@ -5,6 +5,8 @@ import json
 from datetime import date
 import datetime
 import time
+import snowflake.connector
+from snowflake.connector import DictCursor
 
 def get_company_data(ticker, start_day, end_day):
     '''Uses the Polygon API to get stock data for a given ticker symbol and date range.'''
@@ -40,3 +42,27 @@ def connect_mysql():
                                 host='127.0.0.1',
                                 database='stock_data')
     return connection
+
+
+def get_snowflake_connection(config_path='snowflake_config.json'):
+    """Load configuration from the JSON file and establish connection 
+    to Snowflake using the loaded configuration"""
+    
+    with open(config_path, 'r') as file:
+        config = json.load(file)
+
+    conn = snowflake.connector.connect(
+        user=config['user'],
+        password=config['password'],
+        account=config['account'],
+        warehouse=config['warehouse'],
+        database=config['database'],
+        schema=config['schema']
+    )
+    
+    return conn
+
+def close_snowflake_connection(cursor, conn):
+    """CLoses both the shared cursor and connection to Snowflake"""
+    cursor.close()
+    conn.close()
