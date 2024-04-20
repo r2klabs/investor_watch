@@ -1,7 +1,6 @@
 import mysql.connector
 import requests
 import json
-from datetime import date
 import datetime
 import time
 import snowflake.connector
@@ -17,10 +16,6 @@ connection = util.get_snowflake_connection()
 #Create a cursor object using a dictionary cursor to fetch rows as dictionaries
 global_cursor = connection.cursor(DictCursor)
 
-
-
-
-        
 for company in companies:
     util.get_polygon_data(company, stock_date ,connection, global_cursor)
     
