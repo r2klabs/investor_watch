@@ -1,4 +1,4 @@
 snowflake_config.json
 __pycache__/
 database/stock_data.csv
-ipynb_checkpoints/
+.ipynb_checkpoints/
