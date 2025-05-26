@@ -8,7 +8,7 @@ from snowflake.connector import DictCursor
 import utilities as util
 
 companies = ['AAPL','AMZN','GOOG','META','MSFT','NFLX', 'TSLA']  #company symbols to retrieve.
-stock_date = '2024-04-03'
+stock_date = '2025-01-02'
 
 #Establish connection to Snowflake
 connection = util.get_snowflake_connection()
